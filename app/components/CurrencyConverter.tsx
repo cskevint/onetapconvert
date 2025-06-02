@@ -99,7 +99,9 @@ export default function CurrencyConverter() {
       <div className="bg-white rounded-lg shadow p-3 mb-2">
         <div className="mb-2">
           <input
-            type="text"
+            type="tel"
+            inputMode="decimal"
+            pattern="[0-9]*\.?[0-9]*"
             value={usdAmount}
             onChange={(e) => handleUsdAmountChange(e.target.value)}
             placeholder="USD"
@@ -118,7 +120,9 @@ export default function CurrencyConverter() {
       <div className="bg-white rounded-lg shadow p-3">
         <div className="mb-2 flex items-center gap-1">
           <input
-            type="text"
+            type="tel"
+            inputMode="decimal"
+            pattern="[0-9]*\.?[0-9]*"
             value={copAmount}
             onChange={(e) => handleCopAmountChange(e.target.value)}
             placeholder="COP"
