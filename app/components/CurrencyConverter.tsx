@@ -41,6 +41,7 @@ export default function CurrencyConverter() {
     }
     setUsdToCopResult(
       (numericAmount * exchangeRate).toLocaleString("en-US", {
+        minimumFractionDigits: 2,
         maximumFractionDigits: 2,
       })
     );
@@ -59,6 +60,7 @@ export default function CurrencyConverter() {
     }
     setCopToUsdResult(
       (numericAmount / exchangeRate).toLocaleString("en-US", {
+        minimumFractionDigits: 2,
         maximumFractionDigits: 2,
       })
     );
@@ -84,7 +86,11 @@ export default function CurrencyConverter() {
 
   return (
     <div className="max-w-xl mx-auto">
-      <h1 className="text-2xl font-bold text-center text-gray-800">
+      <h1
+        className="text-2xl font-bold text-center text-gray-800 cursor-pointer select-none"
+        onClick={() => window.location.reload()}
+        title="Reload page"
+      >
         Currency Converter
       </h1>
       <h2 className="text-center text-sm text-gray-600 mb-1">
@@ -99,7 +105,7 @@ export default function CurrencyConverter() {
       <div className="bg-white rounded-lg shadow p-3 mb-2">
         <div className="mb-2">
           <input
-            type="tel"
+            type="search"
             inputMode="decimal"
             pattern="[0-9]*\.?[0-9]*"
             value={usdAmount}
@@ -120,7 +126,7 @@ export default function CurrencyConverter() {
       <div className="bg-white rounded-lg shadow p-3">
         <div className="mb-2 flex items-center gap-1">
           <input
-            type="tel"
+            type="search"
             inputMode="decimal"
             pattern="[0-9]*\.?[0-9]*"
             value={copAmount}
