@@ -132,19 +132,19 @@ export default function CurrencyConverter() {
             value={copAmount}
             onChange={(e) => handleCopAmountChange(e.target.value)}
             placeholder="COP"
-            className="w-full px-2 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500 text-base"
+            className="w-full px-2 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500 text-base h-9"
           />
           <button
             onClick={() => multiplyCopAmount(1000)}
-            className="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors text-xs whitespace-nowrap"
+            className="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors text-xs whitespace-nowrap h-9"
           >
-            × 1,000
+            ×1,000
           </button>
           <button
             onClick={() => multiplyCopAmount(1000000)}
-            className="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors text-xs whitespace-nowrap"
+            className="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors text-xs whitespace-nowrap h-9"
           >
-            × 1,000,000
+            ×1,000,000
           </button>
         </div>
         <div className="bg-gray-50 rounded-md p-2">
