@@ -103,7 +103,7 @@ export default function CurrencyConverter() {
             value={usdAmount}
             onChange={(e) => handleUsdAmountChange(e.target.value)}
             placeholder="USD"
-            className="w-full px-2 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm"
+            className="w-full px-2 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-base"
           />
         </div>
         <div className="bg-gray-50 rounded-md p-2 mt-1">
@@ -122,7 +122,7 @@ export default function CurrencyConverter() {
             value={copAmount}
             onChange={(e) => handleCopAmountChange(e.target.value)}
             placeholder="COP"
-            className="w-full px-2 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500 text-sm"
+            className="w-full px-2 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500 text-base"
           />
           <button
             onClick={() => multiplyCopAmount(1000)}
