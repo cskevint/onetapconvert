@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+# OneTapConvert
+
+OneTapConvert is a simple currency converter web application built with [Next.js](https://nextjs.org). It allows users to quickly convert between US Dollars (USD) and Colombian Pesos (COP) using the latest exchange rate, which is fetched from exchangerate.host and cached on the server once per day for efficiency.
+
+
+## Features
+
+- Convert between USD and COP instantly as you type
+- Switch conversion direction (USD → COP or COP → USD) with one tap
+- Multiply the input amount by 1,000 or 1,000,000 with quick buttons
+- The latest exchange rate is fetched from exchangerate.host and cached on the server once per day
+- Clean, responsive UI built with Tailwind CSS
 
 ## Getting Started
 
-First, run the development server:
+1. **Install dependencies:**
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+2. **Set up your exchangerate.host API key:**
+
+   - Register for a free API key at [exchangerate.host](https://exchangerate.host/)
+   - Create a `.env.local` file in the project root and add:
+
+     ```env
+     NEXT_PUBLIC_EXCHANGERATE_API_KEY=your_api_key_here
+     ```
+
+3. **Run the development server:**
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. **Open [http://localhost:3000](http://localhost:3000) in your browser.**
+
+## Production Build
+
+To build and start the app in production mode:
 
 ```bash
-npm run dev
+npm run build
+npm start
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+yarn build
+yarn start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How It Works
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- The exchange rate is fetched from exchangerate.host via a server-side API route (`/api/exchange-rate`).
+- The server caches the exchange rate in a local file and only fetches a new rate once per day.
+- The client fetches the rate from the server API, not directly from the external service.
+- No user data or preferences are stored in the browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+- `app/components/CurrencyConverter.tsx` – Main currency converter component
+- `app/api/exchange-rate/route.ts` – Serverless API route for fetching/caching the exchange rate
+- `exchange-rate-cache.json` – Server-side cache file for the daily exchange rate
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+MIT
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
