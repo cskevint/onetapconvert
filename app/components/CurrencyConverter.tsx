@@ -2,8 +2,6 @@
 
 import { useState, useEffect } from "react";
 
-type ConversionMode = "USD_TO_COP" | "COP_TO_USD";
-
 export default function CurrencyConverter() {
   const [usdAmount, setUsdAmount] = useState<string>("");
   const [copAmount, setCopAmount] = useState<string>("");
@@ -41,7 +39,11 @@ export default function CurrencyConverter() {
       setUsdToCopResult("");
       return;
     }
-    setUsdToCopResult((numericAmount * exchangeRate).toLocaleString("en-US", { maximumFractionDigits: 2 }));
+    setUsdToCopResult(
+      (numericAmount * exchangeRate).toLocaleString("en-US", {
+        maximumFractionDigits: 2,
+      })
+    );
   }, [usdAmount, exchangeRate]);
 
   // COP to USD calculation
@@ -55,7 +57,11 @@ export default function CurrencyConverter() {
       setCopToUsdResult("");
       return;
     }
-    setCopToUsdResult((numericAmount / exchangeRate).toLocaleString("en-US", { maximumFractionDigits: 2 }));
+    setCopToUsdResult(
+      (numericAmount / exchangeRate).toLocaleString("en-US", {
+        maximumFractionDigits: 2,
+      })
+    );
   }, [copAmount, exchangeRate]);
 
   const handleUsdAmountChange = (value: string) => {
@@ -78,55 +84,64 @@ export default function CurrencyConverter() {
 
   return (
     <div className="max-w-xl mx-auto">
-      <h1 className="text-2xl font-bold text-center text-gray-800 mb-2">Currency Converter</h1>
+      <h1 className="text-2xl font-bold text-center text-gray-800">
+        Currency Converter
+      </h1>
+      <h2 className="text-center text-sm text-gray-600 mb-1">
+        {exchangeRate
+          ? `1 USD = ${exchangeRate.toLocaleString("en-US", {
+              maximumFractionDigits: 2,
+            })} COP`
+          : "Loading exchange rate..."}
+      </h2>
 
       {/* USD to COP Card */}
       <div className="bg-white rounded-lg shadow p-3 mb-2">
-        <h2 className="text-base font-semibold mb-2 text-blue-700">USD to COP</h2>
         <div className="mb-2">
           <input
             type="text"
             value={usdAmount}
-            onChange={e => handleUsdAmountChange(e.target.value)}
-            placeholder="Enter USD amount"
+            onChange={(e) => handleUsdAmountChange(e.target.value)}
+            placeholder="USD"
             className="w-full px-2 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm"
           />
         </div>
         <div className="bg-gray-50 rounded-md p-2 mt-1">
           <p className="text-xs text-gray-600">COP</p>
-          <p className="text-base font-semibold">{usdToCopResult ? `${usdToCopResult} COP` : '-'}</p>
+          <p className="text-base font-semibold">
+            {usdToCopResult ? `${usdToCopResult} COP` : "-"}
+          </p>
         </div>
       </div>
 
       {/* COP to USD Card */}
       <div className="bg-white rounded-lg shadow p-3">
-        <h2 className="text-base font-semibold mb-2 text-green-700">COP to USD</h2>
-        <div className="mb-2">
+        <div className="mb-2 flex items-center gap-1">
           <input
             type="text"
             value={copAmount}
-            onChange={e => handleCopAmountChange(e.target.value)}
-            placeholder="Enter COP amount"
+            onChange={(e) => handleCopAmountChange(e.target.value)}
+            placeholder="COP"
             className="w-full px-2 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500 text-sm"
           />
-        </div>
-        <div className="flex gap-1 mb-2">
           <button
             onClick={() => multiplyCopAmount(1000)}
-            className="flex-1 px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors text-xs"
+            className="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors text-xs whitespace-nowrap"
           >
             × 1,000
           </button>
           <button
             onClick={() => multiplyCopAmount(1000000)}
-            className="flex-1 px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors text-xs"
+            className="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors text-xs whitespace-nowrap"
           >
             × 1,000,000
           </button>
         </div>
         <div className="bg-gray-50 rounded-md p-2">
           <p className="text-xs text-gray-600">USD</p>
-          <p className="text-base font-semibold">{copToUsdResult ? `${copToUsdResult} USD` : '-'}</p>
+          <p className="text-base font-semibold">
+            {copToUsdResult ? `${copToUsdResult} USD` : "-"}
+          </p>
         </div>
       </div>
     </div>
