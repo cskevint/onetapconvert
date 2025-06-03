@@ -28,7 +28,8 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Currency Converter" />
         <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#f9fafb" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className={`${inter.className}`}>{children}</body>
