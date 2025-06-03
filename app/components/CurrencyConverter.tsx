@@ -102,7 +102,7 @@ export default function CurrencyConverter() {
       </h2>
 
       {/* USD to COP Card */}
-      <div className="bg-white rounded-lg shadow p-3 mb-2">
+      <div className="bg-blue-100 rounded-lg shadow p-3 mb-2">
         <div className="mb-2">
           <input
             type="search"
@@ -123,7 +123,7 @@ export default function CurrencyConverter() {
       </div>
 
       {/* COP to USD Card */}
-      <div className="bg-white rounded-lg shadow p-3">
+      <div className="bg-red-100 rounded-lg shadow p-3">
         <div className="mb-2 flex items-center gap-1">
           <input
             type="search"
