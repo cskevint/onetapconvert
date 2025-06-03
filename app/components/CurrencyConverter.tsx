@@ -87,13 +87,13 @@ export default function CurrencyConverter() {
   return (
     <div className="max-w-xl mx-auto">
       <h1
-        className="text-2xl font-bold text-center text-gray-800 cursor-pointer select-none"
+        className="text-2xl font-bold text-center text-gray-800 dark:text-gray-100 cursor-pointer select-none"
         onClick={() => window.location.reload()}
         title="Reload page"
       >
         Currency Converter
       </h1>
-      <h2 className="text-center text-sm text-gray-600 mb-1">
+      <h2 className="text-center text-sm text-gray-600 dark:text-gray-300 mb-1">
         {exchangeRate
           ? `1 USD = ${exchangeRate.toLocaleString("en-US", {
               maximumFractionDigits: 2,
@@ -102,7 +102,7 @@ export default function CurrencyConverter() {
       </h2>
 
       {/* USD to COP Card */}
-      <div className="bg-blue-100 rounded-lg shadow p-3 mb-2">
+      <div className="bg-blue-100 dark:bg-blue-900/40 rounded-lg shadow p-3 mb-2">
         <div className="mb-2">
           <input
             type="search"
@@ -114,16 +114,16 @@ export default function CurrencyConverter() {
             className="w-full px-2 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-base"
           />
         </div>
-        <div className="bg-gray-50 rounded-md p-2 mt-1">
-          <p className="text-xs text-gray-600">COP</p>
-          <p className="text-base font-semibold">
+        <div className="bg-gray-50 dark:bg-gray-800 rounded-md p-2 mt-1">
+          <p className="text-xs text-gray-600 dark:text-gray-300">COP</p>
+          <p className="text-base font-semibold dark:text-gray-100">
             {usdToCopResult ? `${usdToCopResult} COP` : "-"}
           </p>
         </div>
       </div>
 
       {/* COP to USD Card */}
-      <div className="bg-red-100 rounded-lg shadow p-3">
+      <div className="bg-red-100 dark:bg-red-900/40 rounded-lg shadow p-3">
         <div className="mb-2 flex items-center gap-1">
           <input
             type="search"
@@ -147,9 +147,9 @@ export default function CurrencyConverter() {
             ×1,000,000
           </button>
         </div>
-        <div className="bg-gray-50 rounded-md p-2">
-          <p className="text-xs text-gray-600">USD</p>
-          <p className="text-base font-semibold">
+        <div className="bg-gray-50 dark:bg-gray-800 rounded-md p-2">
+          <p className="text-xs text-gray-600 dark:text-gray-300">USD</p>
+          <p className="text-base font-semibold dark:text-gray-100">
             {copToUsdResult ? `${copToUsdResult} USD` : "-"}
           </p>
         </div>
